@@ -12,4 +12,5 @@ gem 'spring', group: :development
 # Use rspec for testing
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
+  gem 'database_cleaner'
 end
