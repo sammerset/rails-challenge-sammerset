@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ApiController, :type => :controller do
 
-  before(:each) do
-    @user = User.create!
-    @levels = (1..10).map { |n| Level.create! number: n }
-    @levels.each_cons(2) do |level, next_level|
-      level.update! next_level: next_level
-    end
-  end
+  before(:each) { setup }
 
   describe "POST finish_level" do
     it "returns http success" do
