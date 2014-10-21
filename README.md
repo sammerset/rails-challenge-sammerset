@@ -22,6 +22,11 @@ You will need ruby version 1.9 or higher. The dependencies are listed in the
 
     bundle install
 
+Alternatively, you can use [vagrant](https://www.vagrantup.com/) to set up an
+ubuntu virtual machine. Just run
+
+    vagrant up
+
 
 Running the tests
 -----------------

@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+# cd straight to /vagrant on login
+if ! grep -q 'cd /vagrant' ~/.bashrc; then
+  echo 'cd /vagrant' >> ~/.bashrc
+fi
+cd /vagrant
+
+# Install dependencies
+sudo apt-get update --quiet
+sudo apt-get install --quiet --assume-yes libsqlite3-dev
+bundle install
