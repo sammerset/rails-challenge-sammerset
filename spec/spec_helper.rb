@@ -1,5 +1,4 @@
 require 'database_cleaner'
-require_relative 'helpers'
 
 RSpec.configure do |config|
 
@@ -49,7 +48,5 @@ RSpec.configure do |config|
   config.around(:each) do |test|
     DatabaseCleaner.cleaning { test.run }
   end
-
-  config.include Helpers
 
 end

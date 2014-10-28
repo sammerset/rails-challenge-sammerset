@@ -4,4 +4,18 @@ class Level < ActiveRecord::Base
   has_many :user_levels
   has_many :users, through: :user_levels
   has_many :attempts, class_name: 'UserLevelAttempt', through: :user_levels
+
+  def self.create_new(number = 1)
+    transaction do
+      level = self.create!(number: (self.maximum(:number) || 0) + 1)
+      [level] + level.create_next(number - 1)
+    end
+  end
+
+  def create_next(number = 1)
+    return [] if number == 0
+    level = self.class.create!(number: self.number + 1)
+    self.update!(next_level: level)
+    [level] + level.create_next(number - 1)
+  end
 end
