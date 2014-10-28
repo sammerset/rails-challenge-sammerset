@@ -8,11 +8,11 @@ RSpec.describe User do
   describe "#level_attempts" do
     it "returns all level attempts for this user" do
       user_levels = levels[0..3].map do |level|
-        user.user_levels.create! level: level
+        user.user_levels.create!(level: level)
       end
-      3.times { user_levels[0].attempts.create! score: random_score }
-      2.times { user_levels[1].attempts.create! score: random_score }
-      4.times { user_levels[2].attempts.create! score: random_score }
+      3.times { user_levels[0].attempts.create!(score: random_score) }
+      2.times { user_levels[1].attempts.create!(score: random_score) }
+      4.times { user_levels[2].attempts.create!(score: random_score) }
       expect(user.level_attempts.length).to eq(9)
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe User do
     it "should set the high score" do
       user.finish_level(levels.first, 10000)
       user.finish_level(levels.first, 20000)
-      user_level = user.user_levels.find_by! level: levels.first
+      user_level = user.user_levels.find_by!(level: levels.first)
       expect(user_level.attempts.length).to eq(2)
       expect(user_level.high_score).to eq(20000)
     end
