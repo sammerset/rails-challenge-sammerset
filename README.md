@@ -22,6 +22,12 @@ You will need ruby version 1.9 or higher. The dependencies are listed in the
 
     bundle install
 
+This project uses sqlite as a database. The sqlite3 gem may fail to build if you
+do not have the correct headers available. You can install these on
+ubuntu/debian by running
+
+    sudo apt-get install libsqlite3-dev
+
 Alternatively, you can use [vagrant](https://www.vagrantup.com/) to set up an
 ubuntu virtual machine. Just run
 
