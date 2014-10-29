@@ -6,6 +6,7 @@ RSpec.describe ApiController, type: :controller do
   let(:levels) { Level.create_new(5) }
 
   describe "GET leaderboard" do
+
     it "returns http success" do
       get :leaderboard, level_number: levels.first.number
       expect(response).to have_http_status(:success)
@@ -26,9 +27,11 @@ RSpec.describe ApiController, type: :controller do
         ]
       })
     end
+
   end
 
   describe "POST finish_level" do
+
     it "returns http success" do
       post :finish_level, user_id: user.id, level_number: levels.first.number
       expect(response).to have_http_status(:success)
@@ -45,6 +48,7 @@ RSpec.describe ApiController, type: :controller do
       # High score should be 2000
       expect(user.user_levels.find_by!(level: levels.first).high_score).to eq(2000)
     end
+
   end
 
 end

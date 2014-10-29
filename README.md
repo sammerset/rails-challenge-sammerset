@@ -11,6 +11,8 @@ complaining, players are giving the game 1-star reviews. It needs to be fixed!
 Your mission, should you choose to accept it, is to clone the repository, fix
 any bugs, get the tests to pass, and submit a pull request with your changes.
 
+**Note that the tests are correct.** You should not need to modify them.
+
 **Good luck!**
 
 
