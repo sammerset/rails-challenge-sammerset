@@ -16,8 +16,8 @@ RSpec.describe ApiController, type: :controller do
     it "returns a list of top scores per user" do
       opponent = User.create!
       level = levels.first
-      user.finish_level(level, 1000)
       user.finish_level(level, 2000)
+      user.finish_level(level, 1000)
       opponent.finish_level(level, 1500)
       get :leaderboard, level_number: levels.first.number
       expect(JSON.parse response.body).to include({
